@@ -24,13 +24,14 @@ public enum TodoService {
         modelMapper = MapperUtil.INSTANCE.get();
     }
 
-    public void register(TodoDTO todoDTO) throws Exception{
+    public void register(TodoDTO todoDTO) throws Exception{//DTO -> VO
 
         TodoVO todoVO = modelMapper.map(todoDTO, TodoVO.class);
 
         System.out.println("todoVO: " + todoVO);
 
         log.info(todoVO);
+
         dao.insert(todoVO);
     }
     public List<TodoDTO> listAll() throws Exception{
